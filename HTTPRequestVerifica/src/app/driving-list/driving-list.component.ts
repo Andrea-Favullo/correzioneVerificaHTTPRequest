@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DrivingModel } from '../driving.model';
 import { Observable } from 'rxjs';
+import { Rent } from '../rent.model';
 
 @Component({
   selector: 'app-driving-list',
@@ -15,6 +16,9 @@ export class DrivingListComponent implements OnInit {
     selectedCar: DrivingModel;
 
     constructor(public http: HttpClient) { }
+
+    @Input()
+    rentList: Rent[];
 
     ngOnInit(): void {
 
@@ -31,6 +35,7 @@ export class DrivingListComponent implements OnInit {
     noleggia(modello: DrivingModel) : boolean {
         console.log(modello);
         this.selectedCar = modello;
+        this.rentList.push( new Rent( modello, 1 ) );
         return false;
     }
 }
