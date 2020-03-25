@@ -26,4 +26,9 @@ export class DrivingListComponent implements OnInit {
 
         this.drivingList = modello;
     }
+/*
+    noleggia(modello: DrivingModel){
+        console.log(modello.tipo)
+        console.log(modello.tariffa)
+    }*/
 }
