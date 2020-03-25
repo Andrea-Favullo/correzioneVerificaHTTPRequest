@@ -35,43 +35,35 @@ export class DrivingListComponent implements OnInit {
     noleggia(modello: DrivingModel): boolean {
         console.log(modello);
         this.selectedCar = modello;
-
+        //controllo se l'elemento noleggiato è già nella lista
         if (this.toModelList().includes(this.selectedCar)) {
-
+            //se è così incremento il numero di rent del modello
             this.rentList[this.trova(this.selectedCar)].incrementa();
 
         } else {
-            
+            //altrimenti lo aggiungo alla lista
             this.rentList.push(new Rent(modello, 1));
         }
 
         return false;
     }
-
-toModelList(): DrivingModel[]{
-
-    let result = new Array<DrivingModel>();
-
-    for (let i = 0; i < this.rentList.length; i++) {
-        
-        result.push(this.rentList[i].getModel());
-    }
-
-    return result;
-}
-
-trova(modello: DrivingModel): number{
-
-    let result = 0;
-
-    for (let i = 0; i < this.rentList.length; i++) {
-
-        if (modello.tipo == this.rentList[i].getModel().tipo) {
-            result = i;
-            break;
+    //converte la lista di rented in una lista di modelli
+    toModelList(): DrivingModel[]{
+        let result = new Array<DrivingModel>();
+        for (let i = 0; i < this.rentList.length; i++) {
+            result.push(this.rentList[i].getModel());
         }
+        return result;
     }
-
-    return result;
-}
+    //restituisce l'index dell'elemento nella lista di rented
+    trova(modello: DrivingModel): number{
+        let result = 0;
+        for (let i = 0; i < this.rentList.length; i++) {
+            if (modello.tipo == this.rentList[i].getModel().tipo) {
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
 }

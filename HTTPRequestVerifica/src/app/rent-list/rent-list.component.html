@@ -1,5 +1,12 @@
 <h3>Elenco noleggi</h3>
 
 <ul>
-<li *ngFor="let modello of rentList">{{modello | json}}</li>
+
+    <li *ngFor="let modello of rentList"> <br>
+        <strong>Tipo: </strong> {{modello.getModel().tipo}} <br>
+        <strong>Descrizione: </strong> {{modello.getModel().descrizione}} <br>
+        <strong>Tariffa: </strong> {{modello.getModel().tariffa}} <br>
+        <strong>Valutazione media:</strong> {{modello.getModel().valutazionemedia}} <br>
+        <strong>Numero di noleggi:</strong> {{modello.n_rent}} <br>
+    </li>
 </ul>
