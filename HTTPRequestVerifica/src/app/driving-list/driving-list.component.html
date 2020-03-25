@@ -1,5 +1,5 @@
 <ul>
     <li *ngFor="let modello of drivingList" > <br> <strong>Tipo: </strong>{{modello.tipo}} <br> <strong>Tariffa:</strong> {{modello.tariffa}} <br>
-    <button >Noleggia mezzo</button>
+    <button (click)="noleggia(modello)" >Noleggia mezzo</button>
     </li>
 </ul>
