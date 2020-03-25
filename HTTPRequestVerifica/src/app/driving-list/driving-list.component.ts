@@ -12,6 +12,7 @@ export class DrivingListComponent implements OnInit {
 
     obs_drive: Observable<DrivingModel[]>
     drivingList: DrivingModel[];
+    selectedCar: DrivingModel;
 
     constructor(public http: HttpClient) { }
 
@@ -27,8 +28,9 @@ export class DrivingListComponent implements OnInit {
         this.drivingList = modello;
     }
 
-    noleggia(modello: DrivingModel){
-        console.log(modello.tipo)
-        console.log(modello.tariffa)
+    noleggia(modello: DrivingModel) : boolean {
+        console.log(modello);
+        this.selectedCar = modello;
+        return false;
     }
 }
