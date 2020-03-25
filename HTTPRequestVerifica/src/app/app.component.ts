@@ -8,6 +8,6 @@ import { Rent } from './rent.model';
 })
 export class AppComponent {
 
-    rentList: Rent[];
+    rentList: Rent[] = new Array<Rent>();
     title = 'HTTPRequestVerifica';
 }

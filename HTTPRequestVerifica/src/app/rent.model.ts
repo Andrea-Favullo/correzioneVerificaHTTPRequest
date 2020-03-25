@@ -9,4 +9,13 @@ export class Rent{
         this.modello = modello;
         this.n_rent = n_rent;
     }
+
+    getModel(): DrivingModel{
+        return this.modello;
+    }
+
+    incrementa(): void{
+        this.n_rent++;
+    }
+
 }
